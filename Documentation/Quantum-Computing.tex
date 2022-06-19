@@ -1,13 +1,14 @@
 \documentclass[20pt]{report}
 \usepackage{makeidx}
+\usepackage{graphicx}
 
 \begin{document}
 
 \begin{titlepage}
-\author{Hanan Basheer} 
+\author{\Large Hanan Basheer} 
 \title{Quantum Information and Computing\\
 \textit{\Large Summer of Science '22}} 
-\date{June 2022}
+\date{}
 \maketitle
 \end{titlepage}
 
@@ -19,8 +20,6 @@
 \par A series of crises had arisen in physics in the 20th Century. The problem was that the theories of physics at that time (now dubbed classical physics) were predicting absurdities such as the existence of an ‘ultraviolet catastrophe’ involving infinite energies, or electrons spiralling inexorably into the atomic nucleus. At first, such problems were resolved by adding ad hoc hypotheses to classical physics, but as a better understanding of atoms and radiation was gained these attempted explanations became more and more convoluted. The crisis came to a head in the early 1920s after a quarter-century of turmoil and resulted in the creation of the modern theory of \textit{quantum mechanics}.
 \par
 \textbf{Quantum mechanics} is a mathematical framework or set of rules for the construction of physical theories. The rules of quantum mechanics are simple but even experts find them counterintuitive, and the earliest antecedents of quantum computation and quantum information may be found in the long-standing desire of physicists to better understand quantum mechanics. 
-\par A related historical strand contributing to the development of quantum computation and quantum information is the interest, dating to the 1970s, in obtaining \textit{complete control over single quantum systems}. Why this effort to attain complete control over single quantum systems? Setting aside the many technological reasons and concentrating on pure science, the principal answer is that researchers have done this on a hunch. Often the most profound insights in science come when we develop a method for probing a new regime of Nature. 
-\par Quantum computation and quantum information fit naturally into this program. They provide a useful series of challenges at varying levels of difficulty for people devising methods to better manipulate single quantum systems, stimulate the development of new experimental techniques and provide guidance as to the most interesting directions in which to take experiment. Conversely, the ability to control single quantum systems is essential if we are to harness the power of quantum mechanics for applications to quantum computation and quantum information. 
 \par One paradigm is provided by the theory of quantum computation, which is based on the idea of using quantum mechanics to perform computations, instead of classical physics. It turns out that while an ordinary computer can be used to simulate a quantum computer, it appears to be impossible to perform the simulation in an efficient fashion. Thus quantum computers offer an essential speed advantage over classical computers. This speed advantage is so significant that many researchers believe that no conceivable amount of progress in classical computation would be able to overcome the gap between the power of a classical computer and the power of a quantum computer.
 \par
 The remarkable first step taken by Deutsch, in proposing an example showing quantum computers might have computational powers exceeding those of classical computer, was improved in the subsequent decade by many people, culminating in Peter Shor’s 1994 demonstration that two enormously important problems – the problem of finding the prime factors of an integer, and the so-called ‘discrete logarithm’ problem – could be solved efficiently on a quantum computer. This attracted widespread interest because these two problems were and still are widely believed to have no efficient solution on a classical computer. Shor’s results are a powerful indication that quantum computers are more powerful than Turing machines, even probabilistic Turing machines.
@@ -43,13 +42,13 @@ the \textit{quantum bit}, or \textit{qubit} for short. In this section we introd
 and multiple qubits, comparing and contrasting their properties to those of classical bits.
 \par
 Just as a classical bit has a state – either 0 or 1 – a qubit also
-has a state. Two possible states for a qubit are the states $|0$ and $|1$, which as you might
-guess correspond to the states 0 and 1 for a classical bit. Notation like ‘$| $’ is called the
+has a state. Two possible states for a qubit are the states $|0\rangle$ and $|1\rangle$, which as you might
+guess correspond to the states 0 and 1 for a classical bit. Notation like ‘$| \rangle$’ is called the
 \textit{Dirac notation}.  The difference between bits and qubits is that a qubit can be in a
-state other than $|0 $ or $|1 $. It is also possible to form linear combinations of states, often
+state other than $|0\rangle $ or $|1\rangle$. It is also possible to form linear combinations of states, often
 called \textit{superpositions}: 
 \begin{equation}
-|\psi = \alpha|0 + \beta|1
+|\psi = \alpha|0\rangle + \beta|1\rangle
 \end{equation}
 \par
 We can examine a bit to determine whether it is in the state 0 or 1. For example,
@@ -61,15 +60,15 @@ The ability of a qubit to be in a superposition state runs counter to our ‘com
 understanding of the physical world around us. A classical bit is like a coin: either heads
 or tails up. For imperfect coins, there may be intermediate states like having it balanced
 on an edge, but those can be disregarded in the ideal case. By contrast, a qubit can exist
-in a continuum of states between $|0 $ and $|1 $ – until it is observed. Let us emphasize
+in a continuum of states between $|0\rangle$ and $|1\rangle$ – until it is observed. Let us emphasize
 again that when a qubit is measured, it only ever gives ‘0’ or ‘1’ as the measurement
 result – probabilistically. For example, a qubit can be in the state
 \begin{equation}
-\frac{1}{\sqrt{2}}|0 + \frac{1}{\sqrt{2}}|1
+\frac{1}{\sqrt{2}}|0\rangle + \frac{1}{\sqrt{2}}|1\rangle
 \end{equation}
 One picture useful in thinking about qubits is the following geometric representation. Because $|\alpha|^2 + |\beta|^2 = 1$, we may rewrite Equation (1) as
 \begin{equation}
-|\psi = \cos{\frac{\theta}{2}}|0 + e^{i\phi} \sin{\frac{\theta}{2}}|1
+|\psi\rangle = \cos{\frac{\theta}{2}}|0\rangle + e^{i\phi} \sin{\frac{\theta}{2}}|1\rangle
 \end{equation}
 The numbers $\theta$ and $\phi$ define a point on the unit three-dimensional sphere. This sphere is often called the \textit{Bloch sphere}. It provides a useful means of visualizing the state of a single qubit, and often serves as an excellent testbed for ideas
 about quantum computation and quantum information.
