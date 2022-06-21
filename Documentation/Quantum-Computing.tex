@@ -1,6 +1,8 @@
 \documentclass[20pt]{report}
 \usepackage{makeidx}
 \usepackage{graphicx}
+\usepackage{amsmath}
+\graphicspath{ {./images/} }
 
 \begin{document}
 
@@ -70,9 +72,60 @@ One picture useful in thinking about qubits is the following geometric represent
 \begin{equation}
 |\psi\rangle = \cos{\frac{\theta}{2}}|0\rangle + e^{i\phi} \sin{\frac{\theta}{2}}|1\rangle
 \end{equation}
-The numbers $\theta$ and $\phi$ define a point on the unit three-dimensional sphere. This sphere is often called the \textit{Bloch sphere}. It provides a useful means of visualizing the state of a single qubit, and often serves as an excellent testbed for ideas
-about quantum computation and quantum information.
+The numbers $\theta$ and $\phi$ define a point on the unit three-dimensional sphere. This sphere is often called the \textit{Bloch sphere}. It provides a useful means of visualizing the state of a single qubit.\\
+\begin{center}
+\includegraphics[width=5cm]{Sphere} \\
+\textit{Bloch Sphere representation of a Qubit} \\
+\end{center}
+We observe that Postulate 2 of Quantum Mechanics, describes how a closed system evolves through a unitary operator. An equivalent view of this postulate, the Schr$\ddot{o}$dinger Equation, describes the system evolution in
+continuous-time,
+\begin{equation}
+i\hbar \frac{d |\psi\rangle}{dt} = H |\psi\rangle
+\end{equation}
+Here, H is a Hermitian operator known as the Hamiltonian of the system. The solution to the equation can be written as,
+\begin{equation}
+|\psi(t2)\rangle = e^{-i \frac{H(t_{2}-t_{1})}{\hbar}}|\psi(t_{1})\rangle = U(t_{1}, t_{2})|\psi(t_{1})\rangle
+\end{equation}
+where we define,
+\begin{equation}
+U(t_{2}, t_{1}) = e^{-i \frac{H(t_{2}-t_{1})}{\hbar}}
+\end{equation}
+In fact, this is just a special case of a useful result: any unitary operator U can be written as $U = exp(iK)$, where K is a Hermitian matrix. This bridges the gap between the discrete-time representation (Postulate 2) and Schr$\ddot{o}$dinger’s equation. \\
 
+It is important to emphasize that Postulate 2 describes the evolution of a closed quantum system. However, when we make a measurement on the system, this counts as an external interaction. Post-measurement, the state of the system is described by Postulate 3. Given our collection of measurement operators $M_{m}$ operating on a system in a state $|\psi\rangle$ prior to the measurement, the probability that result m is measured is,
+\begin{equation}
+p(m) = \langle\psi|M_{m}^{+}M_{m}|\psi\rangle
+\end{equation}
+and the state of the system post-measurement is,
+\begin{equation}
+|\psi ' \rangle = \frac{M_{m} |\psi\rangle}{\sqrt{\langle\psi|M_{m}^{+}M_{m}|\psi\rangle}}
+\end{equation}
+Note that for normalized probabilities, we require that {Mm} satisfy the completeness relation. An example depicting the use of measurements is the measurement of a qubit in the computational basis. We have two measurement operators $M_{0}$ = $|0\rangle \langle0|$ and $M_{1}$ = $|1\rangle \langle0|$. We can see that for a state $|\psi\rangle = a |0\rangle + b |1\rangle$, the state post measurement is,
+\begin{center}
+$\frac{a}{|a|}|0\rangle$ with probability p(0) = $|a|^2$ \\
+$\frac{b}{|b|}|0\rangle$ with probability p(1) = $|b|^2 $\\
+\end{center}
+There is also a special class of measurements, known as projective measurements, which are described
+by an observable M, which is a Hermitian operator having a spectral decomposition,
+$M = \sum_{m}mP_{m}$, where Pm is the projector onto the eigenspace of M with eigenvalue m. The probability of obtaining
+the result m upon measuring the state $|\psi\rangle$ is given by,
+\begin{equation}
+p(m) = \langle\psi|P_{m}|\psi\rangle
+\end{equation}
+and the state post-measurement is
+\begin{equation}
+|\psi ' \rangle = \frac{P_{m}|\psi\rangle}{\sqrt{p(m)}}
+\end{equation}
+Using equation 7, we can the obtain the average value $\langle M \rangle$ of the observable as,
+\begin{equation}
+\begin{split}
+\langle M \rangle = E(m)
+& = \sum_{m}mp(m) \\
+& = \sum_{m}\langle\psi|P_{m}|\psi\rangle \\
+& = \langle\psi|(\sum_{m}mP_{m})|\psi\rangle \\
+& = \langle\psi|M|\psi\rangle
+\end{split}
+\end{equation}
 
 \printindex{}
 \end{document}
